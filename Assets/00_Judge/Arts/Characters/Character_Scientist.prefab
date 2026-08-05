@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Judge.AssistantJudge
   _characterType: 4
-  _talkBubble: {fileID: 0}
+  _talkBubble: {fileID: 3246519567642619920}
   _cameraTarget: {fileID: 0}
 --- !u!1001 &6884818207934123497
 PrefabInstance:
@@ -249,3 +249,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5098541894272525091, guid: 2c8263ba17042274899578a2e64ec06c, type: 3}
   m_PrefabInstance: {fileID: 6884818207934123497}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3246519567642619920 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8252351495496760825, guid: 2c8263ba17042274899578a2e64ec06c, type: 3}
+  m_PrefabInstance: {fileID: 6884818207934123497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250533eb6da819545affb4b47a5e751d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Judge.TalkBubble
