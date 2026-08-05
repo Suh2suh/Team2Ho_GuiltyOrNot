@@ -1,6 +1,4 @@
-using System;
-using System.Threading;
-using Cysharp.Threading.Tasks;
+﻿using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +11,7 @@ namespace Judge
         [SerializeField] private TextMeshProUGUI _onClickToStart;
         [SerializeField] private float _fadeInOutDuration = 1.0f;
 
-        private CancellationTokenSource _fadeCancellationTokenSource;
+        private Tween _fadeTween;
 
         private void OnEnable()
         {
@@ -58,61 +56,31 @@ namespace Judge
             }
 
             SetTextAlpha(1.0f);
-            _fadeCancellationTokenSource = new CancellationTokenSource();
-            FadeInOutTextAsync(_fadeCancellationTokenSource.Token).Forget();
+
+            float halfDuration = Mathf.Max(_fadeInOutDuration, 0.01f) * 0.5f;
+            _fadeTween = _onClickToStart.DOFade(0.0f, halfDuration)
+                .SetEase(Ease.InOutSine)
+                .SetLoops(-1, LoopType.Yoyo)
+                .SetLink(gameObject);
         }
 
         public void StopFadeInOutText()
         {
-            if (_fadeCancellationTokenSource == null)
+            if (_fadeTween != null)
             {
-                return;
+                _fadeTween.Kill();
+                _fadeTween = null;
             }
 
-            _fadeCancellationTokenSource.Cancel();
-            _fadeCancellationTokenSource.Dispose();
-            _fadeCancellationTokenSource = null;
+            if (_onClickToStart != null)
+            {
+                SetTextAlpha(1.0f);
+            }
         }
 
         private void LoadIngameScene()
         {
             SceneFlowManager.Instance.Load(SceneList.IngameScene);
-        }
-
-        private async UniTask FadeInOutTextAsync(CancellationToken cancellationToken)
-        {
-            try
-            {
-                float duration = Mathf.Max(_fadeInOutDuration, 0.01f);
-                float halfDuration = duration * 0.5f;
-
-                while (!cancellationToken.IsCancellationRequested)
-                {
-                    await FadeTextAlphaAsync(1.0f, 0.0f, halfDuration, cancellationToken);
-                    await FadeTextAlphaAsync(0.0f, 1.0f, halfDuration, cancellationToken);
-                }
-            }
-            catch (OperationCanceledException)
-            {
-            }
-        }
-
-        private async UniTask FadeTextAlphaAsync(float startAlpha, float endAlpha, float duration, CancellationToken cancellationToken)
-        {
-            float elapsedTime = 0.0f;
-
-            while (elapsedTime < duration)
-            {
-                cancellationToken.ThrowIfCancellationRequested();
-
-                elapsedTime += Time.unscaledDeltaTime;
-                float t = Mathf.Clamp01(elapsedTime / duration);
-                SetTextAlpha(Mathf.Lerp(startAlpha, endAlpha, t));
-
-                await UniTask.Yield(PlayerLoopTiming.Update, cancellationToken);
-            }
-
-            SetTextAlpha(endAlpha);
         }
 
         private void SetTextAlpha(float alpha)
