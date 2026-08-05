@@ -5,7 +5,7 @@ namespace Judge
 {
 	public enum CharacterType
 	{
-		Judge,
+		Judge = 0,
 		Prosecutor,
 		Lawyer,
 		Ethicist,
@@ -14,6 +14,7 @@ namespace Judge
 
 	public enum GameState
 	{
+		None = 0,
 		CaseBriefing,
 		Hearing,
 		Verdict,
