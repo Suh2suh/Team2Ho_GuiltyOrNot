@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c76e211c4454945934f5959e62ff17, type: 3}
+  m_Name: UIDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Judge.UIDatabase
+  _uiDataList:
+  - UIName: 1
+    Prefab: {fileID: 1080139655373003535, guid: e353acb95858d324e97e2da83fb8c0fb, type: 3}
+  - UIName: 501
+    Prefab: {fileID: 6205289434999162778, guid: 0506292d3ebed5a499e7c7506363a321, type: 3}
