@@ -19,11 +19,11 @@ namespace Judge
 		[SerializeField] TMP_InputField _userInputField;
         [SerializeField] Button _submitButton;
 		[SerializeField] Button _okayButton;
-
-        private List<TagToggle> _tagToggles = new();
+        [SerializeField] private List<TagToggle> _tagToggles = new();
         private HashSet<string> _selectedTagIDs = new();
 
-		[Header("Result")] List<AssistantCommentArea> _assistantCommentAreas;
+		[Header("Result")] 
+        [SerializeField] List<AssistantCommentArea> _assistantCommentAreas;
         [Serializable]
         private class AssistantCommentArea
 		{

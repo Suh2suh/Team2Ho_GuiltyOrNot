@@ -434,7 +434,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6082623073347852476}
   toggleTransition: 1
   graphic: {fileID: 7672104443755186611}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 7937136618770637392}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -655,7 +655,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBCC0\uD638\uC0AC\uC784"
+  m_text: "\uAC80\uC0AC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62f7e3a7b69b1ee4d8583b6ab8a3c555, type: 2}
   m_sharedMaterial: {fileID: 3512481190604652011, guid: 62f7e3a7b69b1ee4d8583b6ab8a3c555, type: 2}
@@ -1266,6 +1266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6688435413157880156}
   - component: {fileID: 7945561909396100730}
+  - component: {fileID: 6469450843641648724}
   m_Layer: 5
   m_Name: Toggle_Tag2
   m_TagString: Untagged
@@ -1342,6 +1343,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &6469450843641648724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961238246002889739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575fcb05a502de54aacd265756627f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Judge.TagToggle
+  _parent: {fileID: 6758749152470305126}
+  _toggle: {fileID: 7945561909396100730}
+  _labelText: {fileID: 1348002993286529745}
 --- !u!1 &2006961360847591188
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,6 +1639,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d515caa8a80dd57448ec33e7cbd5cfc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Judge.JudgeUI
+  _judgePageGroup: {fileID: 2010494164394380744}
+  _resultPageGroup: {fileID: 2484150471028453252}
+  _caseTitleText: {fileID: 7526423316393700321}
+  _guiltyToggle: {fileID: 7835900940257985525}
+  _notGuiltyToggle: {fileID: 2589071909880069574}
+  _userInputField: {fileID: 5903107996344092391}
+  _submitButton: {fileID: 478221484975971560}
+  _okayButton: {fileID: 3545655675739238217}
+  _tagToggles:
+  - {fileID: 5921143126179942255}
+  - {fileID: 6469450843641648724}
+  - {fileID: 3459310088767490474}
+  - {fileID: 712257896253750166}
+  - {fileID: 5842318881215652224}
+  - {fileID: 1262404374764898554}
+  _assistantCommentAreas:
+  - CharacterType: 2
+    ScoreText: {fileID: 6588814695323179611}
+    CommentText: {fileID: 748067708037977051}
+  - CharacterType: 1
+    ScoreText: {fileID: 6665016984817370225}
+    CommentText: {fileID: 7707344681507659473}
+  - CharacterType: 4
+    ScoreText: {fileID: 8158093756791806432}
+    CommentText: {fileID: 4548348767482320266}
+  - CharacterType: 3
+    ScoreText: {fileID: 8400182949480676411}
+    CommentText: {fileID: 2146042543532797434}
 --- !u!1 &2462185971045108907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,7 +2088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBCC0\uD638\uC0AC\uC784"
+  m_text: "\uC724\uB9AC\uD559\uC790"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62f7e3a7b69b1ee4d8583b6ab8a3c555, type: 2}
   m_sharedMaterial: {fileID: 3512481190604652011, guid: 62f7e3a7b69b1ee4d8583b6ab8a3c555, type: 2}
@@ -2748,7 +2792,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c7b695e9aed726e428528d315cf742c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cf6354e6b04f45643bbed810b159fc60, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3119,6 +3163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2429523883361151050}
   - component: {fileID: 6766200896489740668}
+  - component: {fileID: 5842318881215652224}
   m_Layer: 5
   m_Name: Toggle_Tag5
   m_TagString: Untagged
@@ -3195,6 +3240,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &5842318881215652224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642503834013800410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575fcb05a502de54aacd265756627f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Judge.TagToggle
+  _parent: {fileID: 6758749152470305126}
+  _toggle: {fileID: 6766200896489740668}
+  _labelText: {fileID: 9026702147762704344}
 --- !u!1 &3961226385919401750
 GameObject:
   m_ObjectHideFlags: 0
@@ -3417,6 +3477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5970768108499384885}
   - component: {fileID: 6046086460860674204}
+  - component: {fileID: 3459310088767490474}
   m_Layer: 5
   m_Name: Toggle_Tag3
   m_TagString: Untagged
@@ -3493,6 +3554,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &3459310088767490474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4140139323081091275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575fcb05a502de54aacd265756627f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Judge.TagToggle
+  _parent: {fileID: 6758749152470305126}
+  _toggle: {fileID: 6046086460860674204}
+  _labelText: {fileID: 9203349528635299662}
 --- !u!1 &4141241338455693970
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,11 +3908,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2001107842468185222}
   toggleTransition: 1
   graphic: {fileID: 4566750262940914350}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 7937136618770637392}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &4521878889959789942
 GameObject:
   m_ObjectHideFlags: 0
@@ -3902,7 +3978,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBCC0\uD638\uC0AC\uC784"
+  m_text: "\uACFC\uD559\uC790"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62f7e3a7b69b1ee4d8583b6ab8a3c555, type: 2}
   m_sharedMaterial: {fileID: 3512481190604652011, guid: 62f7e3a7b69b1ee4d8583b6ab8a3c555, type: 2}
@@ -4966,7 +5042,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBCC0\uD638\uC0AC\uC784"
+  m_text: "\uBCC0\uD638\uC0AC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62f7e3a7b69b1ee4d8583b6ab8a3c555, type: 2}
   m_sharedMaterial: {fileID: 3512481190604652011, guid: 62f7e3a7b69b1ee4d8583b6ab8a3c555, type: 2}
@@ -5124,6 +5200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9055207013998431377}
   - component: {fileID: 435220299433725755}
+  - component: {fileID: 712257896253750166}
   m_Layer: 5
   m_Name: Toggle_Tag4
   m_TagString: Untagged
@@ -5200,6 +5277,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &712257896253750166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5698914983627591210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575fcb05a502de54aacd265756627f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Judge.TagToggle
+  _parent: {fileID: 6758749152470305126}
+  _toggle: {fileID: 435220299433725755}
+  _labelText: {fileID: 4781011391981274528}
 --- !u!1 &5766444948849127651
 GameObject:
   m_ObjectHideFlags: 0
@@ -5265,7 +5357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c7b695e9aed726e428528d315cf742c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9462e139a67fdff468adf3172a175ca3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6784,6 +6876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6349219667140163953}
   - component: {fileID: 9103612899467360709}
+  - component: {fileID: 1262404374764898554}
   m_Layer: 5
   m_Name: Toggle_Tag6
   m_TagString: Untagged
@@ -6860,6 +6953,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &1262404374764898554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7217796627568828155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575fcb05a502de54aacd265756627f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Judge.TagToggle
+  _parent: {fileID: 6758749152470305126}
+  _toggle: {fileID: 9103612899467360709}
+  _labelText: {fileID: 4782106178818157962}
 --- !u!1 &7517941890080471796
 GameObject:
   m_ObjectHideFlags: 0
@@ -6925,7 +7033,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c7b695e9aed726e428528d315cf742c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5283ec4d5826614e8d05e8142707380, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6945,6 +7053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5210368897627038565}
   - component: {fileID: 8864949818543813544}
+  - component: {fileID: 5921143126179942255}
   m_Layer: 5
   m_Name: Toggle_Tag1
   m_TagString: Untagged
@@ -7021,6 +7130,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!114 &5921143126179942255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7579896080765279119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 575fcb05a502de54aacd265756627f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Judge.TagToggle
+  _parent: {fileID: 6758749152470305126}
+  _toggle: {fileID: 8864949818543813544}
+  _labelText: {fileID: 4276574966852867931}
 --- !u!1 &7715233038272295381
 GameObject:
   m_ObjectHideFlags: 0
