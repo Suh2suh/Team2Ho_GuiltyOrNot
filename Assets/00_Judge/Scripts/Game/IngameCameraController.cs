@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Unity.Cinemachine;
@@ -24,9 +24,12 @@ namespace Judge
 
         public CinemachineCamera CurrentCamera => _currentCamera;
         public CinemachineCamera PrevCamera => _prevCamera;
+        public bool IsBlending => _cinemachineBrain != null && _cinemachineBrain.IsBlending;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             CacheCurrentCamera();
         }
 

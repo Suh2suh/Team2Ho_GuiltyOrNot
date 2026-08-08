@@ -12,8 +12,10 @@ public class IngameSceneController : SingletonBase<IngameSceneController>
 	private Dictionary<CharacterType, AssistantJudge> _assistantJudgeDic = new();
 
 
-	private void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
+
 		_assistantJudgeDic.Clear();
 		foreach (var assistantJudge in _assistantJudges)
 		{

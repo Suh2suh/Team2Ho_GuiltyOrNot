@@ -50,6 +50,9 @@ namespace Judge
             if (UIManager.Instance.IsActive(UIList.EvidenceUI))
                 return;
 
+            if (IngameCameraController.HasInstance && IngameCameraController.Instance.IsBlending)
+                return;
+
 			Ray ray = _camera.ScreenPointToRay(screenPosition);
 
             TryClickAssistantJudge2D(ray);
