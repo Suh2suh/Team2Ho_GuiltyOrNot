@@ -18,9 +18,6 @@ namespace Judge
 
 		private void Update()
         {
-            if (GameManager.Instance.CurrentGameState != GameState.Hearing)
-                return;
-
             if (!Input.GetMouseButtonDown(0))
                 return;
 
@@ -29,7 +26,13 @@ namespace Judge
 
         private void TryClickAssistantJudge()
         {
-            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            if (GameManager.Instance.CurrentGameState != GameState.Hearing)
+                return;
+
+            if (UIManager.Instance.IsActive(UIList.EvidenceUI))
+                return;
+
+			Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
             TryClickAssistantJudge2D(ray);
         }

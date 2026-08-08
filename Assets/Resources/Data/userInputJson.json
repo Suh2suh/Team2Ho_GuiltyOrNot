@@ -1,0 +1,9 @@
+{
+  "caseId": "case_001_last_tangsuyuk",
+  "verdict": "NOT_GUILTY",
+  "selectedTagIds": [
+    "physical_trace",
+    "timing_unknown"
+  ],
+  "finalStatement": "피고인의 젓가락에서 소스 흔적은 발견됐지만, 언제 묻었는지 알 수 없어 마지막 한 조각과 연결할 수 없습니다."
+}

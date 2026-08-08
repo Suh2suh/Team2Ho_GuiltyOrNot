@@ -8,6 +8,7 @@ namespace Judge
         CaseUI,
         EvidenceUI,
         JudgeUI,
+        CasePopupUI,
 
 		// Popup Start
 		Popup = UIType.Popup,

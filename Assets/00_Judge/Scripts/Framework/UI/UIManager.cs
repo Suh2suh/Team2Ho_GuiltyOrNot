@@ -53,7 +53,20 @@ namespace Judge
             ui.Hide();
         }
 
-        public void Destroy(UIList uiName)
+		public T Get<T>(UIList uiName) where T : UIBase
+		{
+			UIBase ui = GetOrCreateUI(uiName);
+
+			if (ui == null)
+			{
+				return null;
+			}
+
+            ui.Hide();
+            return ui as T;
+		}
+
+		public void Destroy(UIList uiName)
         {
             if (!_uiInstances.TryGetValue(uiName, out UIBase ui))
             {
@@ -68,7 +81,17 @@ namespace Judge
             }
         }
 
-        private UIBase GetOrCreateUI(UIList uiName)
+        public bool IsActive(UIList uiName)
+        {
+			if (!_uiInstances.TryGetValue(uiName, out UIBase ui) || ui == null)
+			{
+				return false;
+			}
+
+            return _uiInstances[uiName].gameObject.activeSelf;
+		}
+
+		private UIBase GetOrCreateUI(UIList uiName)
         {
             if (_uiInstances.TryGetValue(uiName, out UIBase ui) && ui != null)
             {

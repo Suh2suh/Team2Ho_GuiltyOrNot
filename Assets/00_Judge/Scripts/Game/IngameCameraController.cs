@@ -13,7 +13,7 @@ namespace Judge
         public CinemachineCamera Camera;
     }
 
-    public class IngameCameraManager : MonoBehaviour
+    public class IngameCameraController : SingletonBase<IngameCameraController>
     {
         [SerializeField] private CinemachineBrain _cinemachineBrain;
         [SerializeField] private CinemachineCamera _defaultCamera;

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Judge
 {
@@ -42,8 +44,17 @@ namespace Judge
                 _hasClicked = true;
                 HideBubble();
             }
-        }
 
+			ShowEvidence().Forget();
+		}
 
-    }
+        private async UniTask ShowEvidence()
+        {
+            await IngameCameraController.Instance.SetCameraOnAsync(_characterType);
+
+			var evidenceUI = UIManager.Instance.Get<EvidenceUI>(UIList.EvidenceUI);
+			evidenceUI.Intialize(_characterType);
+			UIManager.Instance.Show(UIList.EvidenceUI);
+		}
+	}
 }

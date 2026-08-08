@@ -2,7 +2,7 @@
 
 namespace Judge
 {
-    public class Judge : MonoBehaviour
+    public class PlayerJudge : MonoBehaviour
     {
         [SerializeField] private Transform _cameraTarget;
 
