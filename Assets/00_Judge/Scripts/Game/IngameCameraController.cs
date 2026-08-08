@@ -30,11 +30,6 @@ namespace Judge
             CacheCurrentCamera();
         }
 
-        private void Start()
-        {
-            StartIngameCameraFlowAsync().Forget();
-        }
-
         public void SetCameraOn(CharacterType characterType)
         {
             CinemachineCamera camera = FindCamera(characterType);
@@ -117,12 +112,6 @@ namespace Judge
 
             await UniTask.Yield(PlayerLoopTiming.Update);
             await UniTask.WaitUntil(() => !_cinemachineBrain.IsBlending);
-        }
-
-        private async UniTask StartIngameCameraFlowAsync()
-        {
-            await SetCameraOnAsync(CharacterType.Judge);
-            UIManager.Instance.Show(UIList.CaseUI);
         }
 
         private void CacheCurrentCamera()

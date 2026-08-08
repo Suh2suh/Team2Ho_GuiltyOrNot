@@ -65,7 +65,6 @@ namespace Judge
 
                 await loadOperation.ToUniTask();
                 await mainProcessTask;
-                await CurrentSceneFlow.PostProcessAsync();
             }
             finally
             {
@@ -76,6 +75,8 @@ namespace Judge
 
                 _isLoading = false;
             }
+
+            await CurrentSceneFlow.PostProcessAsync();
         }
 
         private SceneFlowBase CreateSceneFlow(SceneList sceneName)

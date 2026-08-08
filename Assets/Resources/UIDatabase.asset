@@ -15,5 +15,13 @@ MonoBehaviour:
   _uiDataList:
   - UIName: 1
     Prefab: {fileID: 1080139655373003535, guid: e353acb95858d324e97e2da83fb8c0fb, type: 3}
+  - UIName: 2
+    Prefab: {fileID: 8679558080851223749, guid: 1acb39dcc67e4564b98f5bf103231416, type: 3}
+  - UIName: 3
+    Prefab: {fileID: 4476588445861605907, guid: 165639e4d9e27dc47a3ed7feca873264, type: 3}
+  - UIName: 4
+    Prefab: {fileID: 2149698668176401238, guid: eb0036af6d7f74b4a8e3078c3e6014ae, type: 3}
+  - UIName: 5
+    Prefab: {fileID: 6347919440561374529, guid: 9fa0abdf4b2cb1b49b79679b0dfeecbd, type: 3}
   - UIName: 501
     Prefab: {fileID: 6205289434999162778, guid: 0506292d3ebed5a499e7c7506363a321, type: 3}

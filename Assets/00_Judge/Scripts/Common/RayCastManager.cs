@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Judge
 {
@@ -15,16 +16,33 @@ namespace Judge
 			if (_camera == null)
                 _camera = Camera.main;
 		}
-
 		private void Update()
         {
-            if (!Input.GetMouseButtonDown(0))
+            if (!TryGetPointerDownPosition(out Vector2 screenPosition))
                 return;
 
-            TryClickAssistantJudge();
+            TryClickAssistantJudge(screenPosition);
         }
 
-        private void TryClickAssistantJudge()
+        private bool TryGetPointerDownPosition(out Vector2 screenPosition)
+        {
+            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                screenPosition = Mouse.current.position.ReadValue();
+                return true;
+            }
+
+            if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.wasPressedThisFrame)
+            {
+                screenPosition = Touchscreen.current.primaryTouch.position.ReadValue();
+                return true;
+            }
+
+            screenPosition = Vector2.zero;
+            return false;
+        }
+
+        private void TryClickAssistantJudge(Vector2 screenPosition)
         {
             if (GameManager.Instance.CurrentGameState != GameState.Hearing)
                 return;
@@ -32,7 +50,7 @@ namespace Judge
             if (UIManager.Instance.IsActive(UIList.EvidenceUI))
                 return;
 
-			Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+			Ray ray = _camera.ScreenPointToRay(screenPosition);
 
             TryClickAssistantJudge2D(ray);
         }

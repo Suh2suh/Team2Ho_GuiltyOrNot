@@ -52,6 +52,8 @@ namespace Judge
         {
             await IngameCameraController.Instance.SetCameraOnAsync(_characterType);
 
+            UIManager.Instance.Hide(UIList.CasePopupUI);
+
 			var evidenceUI = UIManager.Instance.Get<EvidenceUI>(UIList.EvidenceUI);
 			evidenceUI.Intialize(_characterType);
 			UIManager.Instance.Show(UIList.EvidenceUI);

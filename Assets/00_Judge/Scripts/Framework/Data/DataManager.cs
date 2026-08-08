@@ -12,10 +12,10 @@ namespace Judge
         private const string k_resultDataPath = "Data/resultJson";
         private const string k_userInputDataPath = "Data/userInputJson";
 
-        public CaseData CaseData { get; private set; }
-        public EvidenceData EvidenceData { get; private set; }
-        public ResultData ResultData { get; private set; }
-        public UserInputData UserInputData { get; private set; }
+        [field: SerializeField, ReadOnly] public CaseData CaseData { get; private set; }
+		[field: SerializeField, ReadOnly] public EvidenceData EvidenceData { get; private set; }
+		[field: SerializeField, ReadOnly] public ResultData ResultData { get; private set; }
+		[field: SerializeField, ReadOnly] public UserInputData UserInputData { get; private set; }
 
         protected override bool PersistAcrossScenes => true;
 

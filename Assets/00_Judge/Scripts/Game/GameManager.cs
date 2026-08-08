@@ -56,9 +56,10 @@ namespace Judge
 
         private async UniTask StartCaseBreifing()
         {
+            await UniTask.WaitForSeconds(1.5f);
+
             await IngameCameraController.Instance.SetCameraOnAsync(CharacterType.Judge);
 
-            var caseUI = UIManager.Instance.Get<CaseUI>(UIList.CaseUI);
 			UIManager.Instance.Show(UIList.CaseUI);
         }
 
