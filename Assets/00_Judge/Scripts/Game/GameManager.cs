@@ -56,7 +56,7 @@ namespace Judge
 
         private async UniTask StartCaseBreifing()
         {
-            await UniTask.WaitForSeconds(1.5f);
+            await UniTask.WaitForSeconds(1.25f);
 
             await IngameCameraController.Instance.SetCameraOnAsync(CharacterType.Judge);
 
@@ -80,10 +80,17 @@ namespace Judge
 
 		private async UniTask StartVerdict()
 		{
+			foreach (CharacterType characterType in Enum.GetValues(typeof(CharacterType)))
+			{
+				if (characterType == CharacterType.Judge) continue;
+
+				var assistantJudge = IngameSceneController.Instance.GetAssistantJudge(characterType);
+				assistantJudge.HideBubble();
+			}
+
 			await IngameCameraController.Instance.SetCameraOnAsync(CharacterType.Judge);
 
-			var caseUI = UIManager.Instance.Get<CaseUI>(UIList.CaseUI);
-			UIManager.Instance.Show(UIList.CaseUI);
+			UIManager.Instance.Show(UIList.JudgeUI);
 		}
 
         private async UniTask StartEndFlow()

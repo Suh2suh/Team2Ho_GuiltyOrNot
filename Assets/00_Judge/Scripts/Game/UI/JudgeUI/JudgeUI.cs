@@ -10,6 +10,7 @@ namespace Judge
     {
         [SerializeField] GameObject _judgePageGroup;
         [SerializeField] GameObject _resultPageGroup;
+        [SerializeField] GameObject _overallPageGroup;
 
         [Header("UserInput")]
         [SerializeField] TextMeshProUGUI _caseTitleText;
@@ -17,9 +18,9 @@ namespace Judge
         [SerializeField] Toggle _notGuiltyToggle;
 		[SerializeField] TMP_InputField _userInputField;
         [SerializeField] Button _submitButton;
-		[SerializeField] Button _okayButton;
+		[SerializeField] Button _toOverallPageButton;
+		[SerializeField] Button _doneGamePhaseButton;
         [SerializeField] private List<TagToggle> _tagToggles = new();
-        private HashSet<string> _selectedTagIDs = new();
 
 		[Header("Result")] 
         [SerializeField] List<AssistantCommentArea> _assistantCommentAreas;
@@ -31,16 +32,43 @@ namespace Judge
             public TextMeshProUGUI CommentText;
         }
 
+        [Header("Result")]
+        [SerializeField] TextMeshProUGUI _overallScoreText;
+        [SerializeField] TextMeshProUGUI _overallCommentText;
+
+
+		private bool _isGuilty = true;
+        private bool IsGuilty
+        {
+            get => _isGuilty;
+			set
+            {
+                if (_isGuilty != value)
+                {
+					ClearJudgePage();
+                    _isGuilty = value;
+				}
+            }
+        }
+		private HashSet<string> _selectedTagIDs = new();
+
+
 		private void Awake()
 		{
-            _guiltyToggle.onValueChanged.AddListener(WrapperGuiltToggle);	
-            void WrapperGuiltToggle(bool b)
+            _guiltyToggle.onValueChanged.AddListener(OnClickGuiltyToggle);
+			void OnClickGuiltyToggle(bool isOn)
             {
-                ClearJudgePage();
+                if (isOn) IsGuilty = true;
+			}
+            _notGuiltyToggle.onValueChanged.AddListener(OnClickNotGuiltyToggle);
+			void OnClickNotGuiltyToggle(bool isOn)
+			{
+				if (isOn) IsGuilty = false;
 			}
 
-            _submitButton.onClick.AddListener(OnClickSubmit);
-            _okayButton.onClick.AddListener(OnClickOK);
+			_submitButton.onClick.AddListener(OnClickSubmit);
+            _toOverallPageButton.onClick.AddListener(OnClickToOverallPage);
+            _doneGamePhaseButton.onClick.AddListener(OnClickDoneGamePhase);
 		}
 
 		public override void Show()
@@ -104,6 +132,18 @@ namespace Judge
             }
         }
 
+        private void UpdateOverallPage()
+        {
+            int overallScore = 0;
+			foreach (AssistantCommentArea commentArea in _assistantCommentAreas)
+			{
+				CharacterEvaluationData evaluation = DataManager.Instance.GetCharacterEvaluation(commentArea.CharacterType);
+                overallScore += evaluation.Score;
+			}
+            _overallScoreText.text = overallScore.ToString() + "Á¡";
+            _overallCommentText.text = DataManager.Instance.ResultData.OverallComment;
+		}
+
         public void OnClickTagToggle(TagToggle tagToggle, bool isOn)
         {
             string tagID = tagToggle.TagID;
@@ -137,7 +177,15 @@ namespace Judge
 			SetActiveResultPage(true);
         }
 
-        private void OnClickOK()
+		private void OnClickToOverallPage()
+		{
+			SetActiveResultPage(false);
+
+            UpdateOverallPage();
+            SetActiveOverallPage(true);
+		}
+
+		private void OnClickDoneGamePhase()
         {
             GameManager.Instance.SetGameState(GameState.None);
 		}
@@ -147,5 +195,7 @@ namespace Judge
 			=> _judgePageGroup.SetActive(activeSelf);
 		private void SetActiveResultPage(bool activeSelf)
 			=> _resultPageGroup.SetActive(activeSelf);
+		private void SetActiveOverallPage(bool activeSelf)
+			=> _overallPageGroup.SetActive(activeSelf);
 	}
 }
