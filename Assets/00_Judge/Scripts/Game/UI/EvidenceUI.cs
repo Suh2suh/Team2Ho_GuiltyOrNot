@@ -28,7 +28,7 @@ namespace Judge
 
         private void RefreshDescText(CharacterType assistantJudgeType)
         {
-            _descText.text = string.Empty; // TODO: 우항 = Resources/Data/evidenceDataJson.json 로드, evidenceStatements.assistantJudgeType(loswerCase 변환 필요) 출력
+            _descText.text = DataManager.Instance.GetEvidenceStatement(assistantJudgeType);
 		}
 
         private void OnClickHide()

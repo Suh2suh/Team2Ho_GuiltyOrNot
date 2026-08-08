@@ -12,6 +12,7 @@ namespace Judge
 
         private void InitializeManagers()
         {
+            _ = DataManager.Instance;
             _ = UIManager.Instance;
             _ = SceneFlowManager.Instance;
         }

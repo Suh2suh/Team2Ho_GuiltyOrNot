@@ -29,12 +29,13 @@ namespace Judge
 		// public void Initialize(caseID)  // 추후 caseID로 Show 전 Initialize
 		private void Initialize()
 		{
-			// Assets/Resources/Data/caseDataJson.json을 읽는다
-			// 아래 모든 텍스트는 caseDataJson.json에서 parsing해온 값을 입력한다
 
-			_caseTitleText.text = string.Empty;      //caseDataJson.json의 title
-			_caseTopicText.text = string.Empty;      //caseDataJson.json의 judgmentTarget
-			_caseEvidenceText.text = string.Empty;//caseDataJson.json의 evidence.description
+			CaseData caseData = DataManager.Instance.CaseData;
+			if (caseData == null) return;
+
+			_caseTitleText.text = caseData.Title;
+			_caseTopicText.text = caseData.JudgmentTarget;
+			_caseEvidenceText.text = caseData.Evidence?.Description ?? string.Empty;
 		}
 
 		private void OnClickVerdictStart()

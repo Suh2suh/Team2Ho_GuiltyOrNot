@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -48,6 +47,7 @@ namespace Judge
 		{
 			base.Show();
 
+            ClearJudgePage();
             UpdateJudgePage();
 
 			SetActiveJudgePage(true);
@@ -57,15 +57,24 @@ namespace Judge
         private void UpdateJudgePage()
         {
             _selectedTagIDs.Clear();
-            // caseDataJson 읽기
-			foreach (var tagToggle in _tagToggles)
-            {
-                // availableTags 순회, id/label 하나씩 넣기
-                tagToggle.Initialize(string.Empty, string.Empty);
-			}
-		}
+            CaseData caseData = DataManager.Instance.CaseData;
+            List<TagData> availableTags = caseData?.AvailableTags;
+            _caseTitleText.text = caseData?.Title ?? string.Empty;
 
-		private void ClearJudgePage()
+            for (int i = 0; i < _tagToggles.Count; i++)
+            {
+                bool hasTagData = availableTags != null && i < availableTags.Count;
+                _tagToggles[i].gameObject.SetActive(hasTagData);
+
+                if (hasTagData)
+                {
+                    TagData tagData = availableTags[i];
+                    _tagToggles[i].Initialize(tagData.ID, tagData.Label);
+                }
+            }
+        }
+
+        private void ClearJudgePage()
         {
             _selectedTagIDs.Clear();
 
@@ -79,13 +88,21 @@ namespace Judge
 
         private void UpdateResultPage()
         {
-			foreach (var commentArea in _assistantCommentAreas)
-			{
-			    // Assets/Resources/Data/resultJson.json 의 characterEvaluations.CharacterType별로 출력
-                commentArea.ScoreText.text = string.Empty + "점";
-                commentArea.CommentText.text = string.Empty;
-			}
-		}
+            foreach (AssistantCommentArea commentArea in _assistantCommentAreas)
+            {
+                CharacterEvaluationData evaluation = DataManager.Instance.GetCharacterEvaluation(commentArea.CharacterType);
+
+                if (evaluation == null)
+                {
+                    commentArea.ScoreText.text = string.Empty;
+                    commentArea.CommentText.text = string.Empty;
+                    continue;
+                }
+
+                commentArea.ScoreText.text = evaluation.Score + "점";
+                commentArea.CommentText.text = evaluation.Reaction;
+            }
+        }
 
         public void OnClickTagToggle(TagToggle tagToggle, bool isOn)
         {
@@ -108,7 +125,12 @@ namespace Judge
         {
             SetActiveJudgePage(false);
 
-			// Assets/Resources/Data/userInputJson.json에 정보 저장
+            string verdict = _guiltyToggle.isOn ? "GUILTY" : "NOT_GUILTY";
+            DataManager.Instance.UpdateUserInput(
+                GameManager.Instance.CaseID,
+                verdict,
+                _selectedTagIDs,
+                _userInputField.text);
 			// await API 수신
 
 			UpdateResultPage();

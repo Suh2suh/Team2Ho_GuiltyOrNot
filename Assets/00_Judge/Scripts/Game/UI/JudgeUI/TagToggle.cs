@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,17 +15,20 @@ namespace Judge
 		public string TagID { get; private set; }
 
 
+        private void Awake()
+        {
+            _toggle.onValueChanged.AddListener(OnValueChanged);
+        }
+
         public void Initialize(string tagID, string labelText)
         {
             TagID = tagID;
             _labelText.text = labelText;
+        }
 
-            _toggle.onValueChanged.AddListener(NotiParentClicked);
-
-            void NotiParentClicked(bool isOn)
-            {
-                _parent.OnClickTagToggle(this, isOn);
-            }
-		}
+        private void OnValueChanged(bool isOn)
+        {
+            _parent.OnClickTagToggle(this, isOn);
+        }
     }
 }

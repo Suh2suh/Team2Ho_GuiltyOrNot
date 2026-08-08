@@ -6,9 +6,11 @@ namespace Judge
 {
     public class GameManager : SingletonBase<GameManager>
     {
+		[SerializeField] private string _caseID = "case_001_last_tangsuyuk";
 		[SerializeField] private GameState _currentGameState = GameState.None;
 		private GameState _prevGameState = GameState.None;
 
+        public string CaseID => _caseID;
         public GameState CurrentGameState => _currentGameState;
         public GameState PrevGameState => _prevGameState;
 
