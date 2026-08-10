@@ -1,8 +1,9 @@
 <img width="612" height="408" alt="TitleLogo" src="https://github.com/user-attachments/assets/5035a609-47ed-4330-8cb4-0fbcdea93e5b" />
 
 # 🎮 Play Online
-> ### ▶️ **PLAY NOW**
+> ### [![Play Now](https://img.shields.io/badge/🎮-PLAY%20NOW-success?style=for-the-badge)](https://suh2suh.github.io/Team2Ho_GuiltyOrNot/)
 > https://suh2suh.github.io/Team2Ho_GuiltyOrNot/
+> 
 <br>
 <br>
 
