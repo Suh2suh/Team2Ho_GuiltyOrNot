@@ -57,7 +57,7 @@ AI 재판관들의 증언을 듣고, 플레이어가 직접 판결과 근거를 
 ## 외부 라이브러리/에셋 (OpenSource/All-Free)
 - DoTween
 - UniTask
-- WebGLInput v1.4.5
+- WebGLInput v1.4.5 (fix: update WebGLInput from v1.4.2 to v1.4.5, for Unity 6 WebGL Korean IME support)
 - Newtonsoft Json
 - 3D Model Assets
 <br>
