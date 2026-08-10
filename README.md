@@ -54,9 +54,10 @@ AI 재판관들의 증언을 듣고, 플레이어가 직접 판결과 근거를 
 <br>
 
 
-## 외부 라이브러리/에셋 (All-FREE)
+## 외부 라이브러리/에셋 (OpenSource/All-Free)
 - DoTween
 - UniTask
+- WebGLInput v1.4.5
 - Newtonsoft Json
 - 3D Model Assets
 <br>
