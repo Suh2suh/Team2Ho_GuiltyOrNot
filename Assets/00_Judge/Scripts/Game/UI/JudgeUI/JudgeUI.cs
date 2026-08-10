@@ -80,6 +80,7 @@ namespace Judge
 
 			SetActiveJudgePage(true);
             SetActiveResultPage(false);
+            SetActiveOverallPage(false);
 		}
 
         private void UpdateJudgePage()
