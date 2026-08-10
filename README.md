@@ -1,6 +1,9 @@
-# Guilty? ...or Not?
+<img width="612" height="408" alt="TitleLogo" src="https://github.com/user-attachments/assets/5035a609-47ed-4330-8cb4-0fbcdea93e5b" />
 
-AI 재판관들의 증언을 듣고, 당신만의 판결을 내려라!
+# 🎮 Play Online
+> ### [![Play Now](https://img.shields.io/badge/🎮-PLAY%20NOW-success?style=for-the-badge)](https://suh2suh.github.io/Team2Ho_GuiltyOrNot/)
+> https://suh2suh.github.io/Team2Ho_GuiltyOrNot/
+> 
 <br>
 <br>
 
